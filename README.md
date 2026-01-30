@@ -23,15 +23,32 @@
 
 ### 必要なもの
 
--   **Unity**: `ProjectSettings/ProjectVersion.txt` に記載されたバージョンと互換性のあるUnityエディタ。
+-   **Unity**: Unity Hub と **Unity 2022.3.62f3** エディタ。
 -   **Ollama**: システムにOllamaがインストールされ、実行されている必要があります。[公式サイト](https://ollama.com/)からダウンロードできます。
 
 ### 手順
 
 1.  **リポジトリのクローン**:
     ```bash
-    git clone <repository-url>
+    git clone https://github.com/sgmt-lab/vlm-teleoperation-unity.git
     ```
+    > **✅ クローン時の認証エラーについて**
+    > `git clone` 時に `Invalid username or token` や `Password authentication is not supported` といったエラーが表示された場合、以下の手順でGitHubの認証を行ってください。これは、現在パスワードでの認証が非推奨となっているためです。
+    >
+    > **推奨: GitHub CLI を使用する方法**
+    >
+    > 1.  **GitHub CLI (`gh`) をインストールします。**
+    >     -   [公式インストール手順](https://github.com/cli/cli#installation)に従って、お使いのOSにインストールしてください。
+    >
+    > 2.  **ターミナルで以下のコマンドを実行し、認証を行います。**
+    >     ```bash
+    >     gh auth login
+    >     ```
+    >     -   いくつかの質問（どのGitHubアカウントか、SSHかHTTPSかなど）が表示されるので、指示に従って回答してください。ブラウザが開き、認証が完了します。
+    >
+    > 3.  **認証後、再度 `git clone` コマンドを実行します。**
+    >     認証が済んでいれば、問題なくリポジトリをクローンできるはずです。
+
 
 2.  **Ollamaのセットアップ**:
     VLMを実行するために、ローカルAI実行環境であるOllamaをセットアップします。
@@ -63,10 +80,21 @@
     ollama list
     ```
     実行後、リストに`qwen3-vl:8b-instruct`が表示されていれば、Ollamaの準備は完了です。
+    また、以下のコマンドでモデルを直接実行し、簡単な対話テストを行うこともできます。
+    ```bash
+    ollama run qwen3-vl:8b-instruct
+    ```
+    （モデルからの応答があれば成功です。終了するには `/bye` と入力してください。）
 
+3.  **Unityのセットアップ**:
+    **a. Unity Hubのインストール**
+    まだUnity Hubをインストールしていない場合は、[Unity公式サイト](https://unity.com/download)からダウンロードしてインストールしてください。
 
-3.  **Unityプロジェクトを開く**:
-    -   Unity Hubを起動し、「開く」からクローンしたプロジェクトフォルダを選択します。
+    **b. Unity 2022.3.62f3 エディタの追加**
+    Unity Hubを開き、「インストール」タブに移動します。「エディタをインストール」ボタンをクリックし、**Unity 2022.3.62f3**を検索してインストールします。
+
+    **c. プロジェクトを開く**
+    Unity Hubの「Projects」タブで「Add」をクリックし、クローンしたリポジトリのルートフォルダ（`vlm-teleoperation-unity`）を選択します。その後、リストに追加されたプロジェクトをクリックしてUnityエディタで開きます。
 
 4.  **VLMConfigの設定**:
     -   Unityエディタの`Project`ウィンドウで、`Assets`フォルダ内にある`VLMConfig`アセット（例: `ConfigA`）を探します。
@@ -106,7 +134,3 @@
     -   **左折 / 右折**: `←` / `→` または `A` / `D`
     -   **ブレーキ**: `スペース`キー
       （※UIの入力フィールドが選択されていない時に操作可能です。）
-
-## ライセンス
-
-このプロジェクトには特定のライセンスは設定されていません。すべての権利は作成者に帰属します。
