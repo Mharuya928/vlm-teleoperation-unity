@@ -6874,7 +6874,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1474980146}
-  - component: {fileID: 1474980145}
+  - component: {fileID: 1474980147}
   m_Layer: 0
   m_Name: OllamaManager
   m_TagString: Untagged
@@ -6882,27 +6882,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1474980145
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1474980144}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f76aeebfe393feedfb7ed8a3c23d775e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  host: 127.0.0.1
-  port: 11434
-  startupTimeoutSec: 12
-  killOnQuit: 1
-  modelToEnsure: 
-  autoPullIfMissing: 1
-  streamingRelativePath: ollama/ollama
-  persistentBinDirName: ollama_bin
-  writeLogs: 1
 --- !u!4 &1474980146
 Transform:
   m_ObjectHideFlags: 0
@@ -6918,6 +6897,20 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1474980147
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1474980144}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 176ea3cd6d0bb32e2a95f761ba016904, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  modelToEnsure: 
+  autoPullIfMissing: 1
 --- !u!43 &1539577380
 Mesh:
   m_ObjectHideFlags: 0
@@ -12899,7 +12892,6 @@ MonoBehaviour:
   rightCamera: {fileID: 1148746370538852221}
   VLMText: {fileID: 410036361}
   configText: {fileID: 1734373182}
-  ollamaUrl: http://localhost:11434/api/chat
   captureWidth: 512
   captureHeight: 512
   vlmActivationKey: 9
