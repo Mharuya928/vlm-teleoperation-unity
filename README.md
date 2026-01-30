@@ -1,4 +1,4 @@
-# VLM Teleoperation for Unity (日本語版)
+# VLM Teleoperation for Unity
 
 本プロジェクトは、Unity環境内で視覚言語モデル（VLM）を使用して車を制御する遠隔操作システムです。車のカメラから取得した映像を、[Ollama](https://ollama.com/)によってローカルで実行されるVLMに送信し、モデルからの自然言語またはJSON形式の応答を運転コマンドに変換して車両を制御します。
 
